@@ -7,64 +7,75 @@
    <video autoplay></video>
 
        <script language="javascript" type="text/javascript">
-       function onVideoFail(e) {
-           console.log('webcam fail!', e);
-         };
-
-       function hasGetUserMedia() {
-         // Note: Opera is unprefixed.
-         return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
-                   navigator.mozGetUserMedia || navigator.msGetUserMedia);
-       }
-
-       if (hasGetUserMedia()) {
-         // Good to go!
-       } else {
-         alert('getUserMedia() is not supported in your browser');
-       }
-
-       window.URL = window.URL || window.webkitURL;
-       navigator.getUserMedia  = navigator.getUserMedia || 
-                                navigator.webkitGetUserMedia ||
-                                 navigator.mozGetUserMedia || 
-                                  navigator.msGetUserMedia;
-
-       var video = document.querySelector('video');
-       var streamRecorder;
-       var webcamstream;
-
-       if (navigator.getUserMedia) {
-         navigator.getUserMedia({audio: true, video: true}, function(stream) {
-           video.src = window.URL.createObjectURL(stream);
-           webcamstream = stream;
-       //  streamrecorder = webcamstream.record();
-         }, onVideoFail);
-       } else {
-           alert ('failed');
-       }
-
-       function startRecording() {
-           while(1)
-           {
-               streamRecorder = webcamstream.record();
-               setTimeout(stopRecording, 1);
-           }
-       }
-       function stopRecording() {
-           streamRecorder.getRecordedData(postVideoToServer);
-       }
           
-       function postVideoToServer(videoblob) {
+            //called when navigato.getUserMedia() fails to access the webcamera
+            function onVideoFail(e) 
+            {
+                  console.log('webcam fail!', e);
+            };
 
-           var data = {};
-           data.video = videoblob;
-           data.metadata = 'test metadata';
-           data.action = "upload_video";
-           jQuery.post("https://mathewstylianidis.github.io/VideoStream/VideoHandler.php", data, onUploadSuccess);
-       }
-       function onUploadSuccess() {
-           alert ('video uploaded');
-       }
+            //return true if getusermedia is supported by browser. Otherwise return false
+            function hasGetUserMedia() 
+            {
+                  return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
+                            navigator.mozGetUserMedia || navigator.msGetUserMedia);
+            }
+
+            // We set an empty object because old browsers might not implement media devices
+            if (navigator.mediaDevices === undefined) 
+            {
+                  navigator.mediaDevices = {};
+            }  
+
+            //check if getusermedia is supported
+            if (!hasGetUserMedia()) 
+            {
+               // return reject promise with an error to keep a consistent interface
+               return Promise.reject(new Error('getUserMedia is not implemented in this browser'));
+            } 
+         
+            window.URL = window.URL || window.webkitURL;
+            navigator.getUserMedia  = navigator.getUserMedia || 
+                                   navigator.webkitGetUserMedia ||
+                                    navigator.mozGetUserMedia || 
+                                     navigator.msGetUserMedia;
+
+            var video = document.querySelector('video');
+            var streamRecorder;
+            var webcamstream;
+
+            if (navigator.getUserMedia) {
+            navigator.getUserMedia({audio: true, video: true}, function(stream) {
+              video.src = window.URL.createObjectURL(stream);
+              webcamstream = stream;
+            //  streamrecorder = webcamstream.record();
+            }, onVideoFail);
+            } else {
+              alert ('failed');
+            }
+
+            function startRecording() {
+              while(1)
+              {
+                  streamRecorder = webcamstream.record();
+                  setTimeout(stopRecording, 1);
+              }
+            }
+            function stopRecording() {
+              streamRecorder.getRecordedData(postVideoToServer);
+             }
+
+             function postVideoToServer(videoblob) {
+
+                 var data = {};
+                 data.video = videoblob;
+                 data.metadata = 'test metadata';
+                 data.action = "upload_video";
+                 jQuery.post("https://mathewstylianidis.github.io/VideoStream/VideoHandler.php", data, onUploadSuccess);
+             }
+             function onUploadSuccess() {
+                 alert ('video uploaded');
+             }
 
        </script>
 
