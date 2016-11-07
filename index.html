@@ -30,8 +30,7 @@
             //check if getusermedia is supported
             if (!hasGetUserMedia()) 
             {
-               // return reject promise with an error to keep a consistent interface
-               new Promise.reject(new Error('getUserMedia is not implemented in this browser'));
+               alert("getUserMedia is not implemented in this browser")
             } 
          
             window.URL = window.URL || window.webkitURL;
