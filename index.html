@@ -44,21 +44,26 @@
        }
 
        function startRecording() {
-           streamRecorder = webcamstream.record();
-           setTimeout(stopRecording, 10000);
+           while(1)
+           {
+               streamRecorder = webcamstream.record();
+               setTimeout(stopRecording, 1);
+           }
        }
        function stopRecording() {
            streamRecorder.getRecordedData(postVideoToServer);
        }
+          
        function postVideoToServer(videoblob) {
 
            var data = {};
            data.video = videoblob;
            data.metadata = 'test metadata';
            data.action = "upload_video";
-           jQuery.post("http://www.foundthru.co.uk/uploadvideo.php", data, onUploadSuccess);
+           jQuery.post("https://mathewstylianidis.github.io/VideoStream/VideoHandler.php", data, onUploadSuccess);
        }
-       function onUploadSuccess() {
+       fun
+       ction onUploadSuccess() {
            alert ('video uploaded');
        }
 
