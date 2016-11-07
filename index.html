@@ -36,3 +36,28 @@
     } else {
         alert ('failed');
     }
+
+    function startRecording() {
+        streamRecorder = webcamstream.record();
+        setTimeout(stopRecording, 10000);
+    }
+    function stopRecording() {
+        streamRecorder.getRecordedData(postVideoToServer);
+    }
+    function postVideoToServer(videoblob) {
+
+        var data = {};
+        data.video = videoblob;
+        data.metadata = 'test metadata';
+        data.action = "upload_video";
+        jQuery.post("http://www.foundthru.co.uk/uploadvideo.php", data, onUploadSuccess);
+    }
+    function onUploadSuccess() {
+        alert ('video uploaded');
+    }
+
+    </script>
+
+    <div id="webcamcontrols">
+        <button class="recordbutton" onclick="startRecording();">RECORD</button>
+    </div>
