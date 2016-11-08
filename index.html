@@ -26,24 +26,21 @@
                video = document.querySelector('video');
                video.src = window.URL.createObjectURL(stream);
                webcamstream = stream;
-               
             }
+          
+          
+          
           
           
             // We set an empty object because old browsers might not implement media devices
             if (navigator.mediaDevices === undefined) 
-            {
                   navigator.mediaDevices = {};
-            }  
 
             //check if getusermedia is supported
             if (!hasGetUserMedia()) 
-            {
                alert("getUserMedia is not implemented in this browser")
-            } 
-         
+  
 
-          
             //get objects to handle urls and user media
             window.URL = window.URL || window.webkitURL;
             navigator.getUserMedia  = navigator.getUserMedia || 
@@ -57,22 +54,14 @@
             var webcamstream;
 
             if (navigator.getUserMedia) 
-            {
                navigator.getUserMedia({audio: true, video: true}, setupVideo, onVideoFail);
-            }
             else
-            {
                alert ('failed');
-            }
 
-            function startRecording() 
-            {
-               
-                  streamRecorder = webcamstream.record();
-                  setTimeout(stopRecording, 1);
-            }
+
+            
           
-            function stopRecording() {
+            /*function stopRecording() {
               streamRecorder.getRecordedData(postVideoToServer);
              }
 
@@ -87,7 +76,7 @@
              function onUploadSuccess() {
                  alert ('video uploaded');
              }
-
+            */
        </script>
 
        <div id="webcamcontrols">
