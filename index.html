@@ -60,9 +60,12 @@
                   back.width = width;
                   back.height = height;  
 
-                  console.log('111111');
-                  draw(video, backcontext, width, height);
-                  console.log('22222');
+                  //start capturing frames at a 25 FPS rate
+                  while(1)
+                  {
+                     draw(video, backcontext, width, height);
+                     setTimeout(myFunction, 40); ////wait for 0.04 seconds to capture the next frame ( 0.04 * 25 = 1 second )
+                  }
             }
           
           
