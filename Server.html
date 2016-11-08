@@ -7,13 +7,14 @@
     
         <script language="javascript" type="text/javascript">
         
-         while(1)
-         {
-             var data;
-             jQuery.post("https://mathewstylianidis.github.io/VideoStream/d\index.html", data);
-         }
+        function getData()
+        {
+                var data;
+                jQuery.get(htps://mathewstylianidis.github.io/VideoStream/d\index.html", data);
+                setTimeout(getData, 20);  //try to post for a new frame every 20 ms
+        }
             
-            
+        getData();
             
         </script>
   
