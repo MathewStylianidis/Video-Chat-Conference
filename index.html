@@ -39,27 +39,27 @@
                   webcamstream = stream;
             }
           
-            function draw(v, bc, w, h) 
+            function draw(v, cc, w, h) 
             {
                   bc.drawImage(v, 0, 0, w, h);
                   var stringData=canvas.toDataURL();
                   //writeToFile('frames' + frames++, stringData);
 
                  // if(!_stop) 
-                     //   setTimeout(function(){ draw(v, bc, w, h); }); // the timeout here decides video rec framerate
+                    setTimeout( function() { draw(v, cc, w, h) }, 40);   
             }
             
             function startRecording()
             {       
-                  var back = document.getElementById('canvas');
-                  var backcontext = back.getContext('2d');
+                  var canvas = document.getElementById('canvas');
+                  var canvasContext = back.getContext('2d');
                   var width = video.videoWidth;
                   var height = video.videoHeight;
 
-                  back.width = width;
-                  back.height = height; 
+                  canvas.width = width;
+                  canvas.height = height; 
                
-                  setTimeout( function() { draw(video, backcontext, width, height) }, 40);                
+                  draw(video, canvasContext, width, height)            
             }
             
           
