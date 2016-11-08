@@ -49,20 +49,22 @@
                      //   setTimeout(function(){ draw(v, bc, w, h); }); // the timeout here decides video rec framerate
             }
             
-            function startRecording()
+            function setupCanvas()
             {
-                  var back = document.getElementById('canvas');
-                  var backcontext = back.getContext('2d');
-
-                  var width = video.videoWidth;
-                  var height = video.videoHeight;
-                  console.log(video.videoHeight + ' ' + video.videoWidth + '\n');
-                  back.width = width;
-                  back.height = height;  
-                  
-               
+               var back = document.getElementById('canvas');
+               var backcontext = back.getContext('2d');
+               var width = video.videoWidth;
+               var height = video.videoHeight;
+    
+               back.width = width;
+               back.height = height; 
+            }
+      
+      
+            function startRecording()
+            {       
                   draw(video, backcontext, width, height);                 
-             }
+            }
           
           
             // We set an empty object because old browsers might not implement media devices
