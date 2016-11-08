@@ -26,9 +26,7 @@
                video = document.querySelector('video');
                video.src = window.URL.createObjectURL(stream);
                webcamstream = stream;
-               video.onloadedmetadata = function(e) {
-                video.play();
-              };
+               
             }
           
           
@@ -67,9 +65,9 @@
                alert ('failed');
             }
 
-            function startRecording() {
-              while(1)
-              {
+            function startRecording() 
+            {
+               
                   streamRecorder = webcamstream.record();
                   setTimeout(stopRecording, 1);
               }
