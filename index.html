@@ -5,8 +5,9 @@
 
 
    <video autoplay muted></video>
-
-       <script language="javascript" type="text/javascript">
+   <canvas id="canvas"></canvas>
+   
+   <script language="javascript" type="text/javascript">
           
             //called when navigato.getUserMedia() fails to access the webcamera
             function onVideoFail(e) 
@@ -29,59 +30,81 @@
             }
           
           
-          
+            function startRecording()
+            {
+                var back = document.getElementById('canvas');
+                var backcontext = back.getContext('2d');
+
+                cw = 240;
+                ch = 400;
+                back.width = cw;
+                back.height = ch;
+                draw(video, backcontext, cw, ch);
+
+                function draw(v, bc, w, h) {
+                     bc.drawImage(v, 0, 0, w, h);
+                        var stringData=canvas.toDataURL();
+                        if(fs !== null) {
+                            writeToFile('frames' + frames++, stringData);
+                        }
+                        if(!_stop) 
+                            setTimeout(function(){ draw(v, bc, w, h); }, 200); // the timeout here decides video rec framerate
+                }
+            }, false);
+            }
           
           
             // We set an empty object because old browsers might not implement media devices
             if (navigator.mediaDevices === undefined) 
                   navigator.mediaDevices = {};
 
-            //check if getusermedia is supported
-            if (!hasGetUserMedia()) 
-               alert("getUserMedia is not implemented in this browser")
-  
-
-            //get objects to handle urls and user media
-            window.URL = window.URL || window.webkitURL;
-            navigator.getUserMedia  = navigator.getUserMedia || 
-                                   navigator.webkitGetUserMedia ||
-                                    navigator.mozGetUserMedia || 
-                                     navigator.msGetUserMedia;
-
-          
-            var video;
-            var streamRecorder;
-            var webcamstream;
-
-            if (navigator.getUserMedia) 
-               navigator.getUserMedia({audio: true, video: true}, setupVideo, onVideoFail);
-            else
-               alert ('failed');
+         //check if getusermedia is supported
+         if (!hasGetUserMedia()) 
+            alert("getUserMedia is not implemented in this browser")
 
 
-            
-          
-            /*function stopRecording() {
-              streamRecorder.getRecordedData(postVideoToServer);
-             }
+         //get objects to handle urls and user media
+         window.URL = window.URL || window.webkitURL;
+         navigator.getUserMedia  = navigator.getUserMedia || 
+                                navigator.webkitGetUserMedia ||
+                                 navigator.mozGetUserMedia || 
+                                  navigator.msGetUserMedia;
 
-             function postVideoToServer(videoblob) {
 
-                 var data = {};
-                 data.video = videoblob;
-                 data.metadata = 'test metadata';
-                 data.action = "upload_video";
-                 jQuery.post("https://mathewstylianidis.github.io/VideoStream/VideoHandler.php", data, onUploadSuccess);
-             }
-             function onUploadSuccess() {
-                 alert ('video uploaded');
-             }
-            */
-       </script>
+         var video;
+         var streamRecorder;
+         var webcamstream;
 
-       <div id="webcamcontrols">
-           <button class="recordbutton" onclick="startRecording();">RECORD</button>
-       </div>
+         if (navigator.getUserMedia) 
+            navigator.getUserMedia({audio: true, video: true}, setupVideo, onVideoFail);
+         else
+            alert ('failed');
+
+
+
+
+
+         /*function stopRecording() {
+           streamRecorder.getRecordedData(postVideoToServer);
+          }
+
+          function postVideoToServer(videoblob) {
+
+              var data = {};
+              data.video = videoblob;
+              data.metadata = 'test metadata';
+              data.action = "upload_video";
+              jQuery.post("https://mathewstylianidis.github.io/VideoStream/VideoHandler.php", data, onUploadSuccess);
+          }
+          function onUploadSuccess() {
+              alert ('video uploaded');
+          }
+         */
+    </script>
+
+    <div id="webcamcontrols">
+        <button class="recordbutton" onclick="startRecording();">RECORD</button>
+    </div>
 
 
 
