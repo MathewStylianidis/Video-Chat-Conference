@@ -66,7 +66,7 @@
                 
                   draw(video, backcontext, width, height);                 
             }
-            setupCanvas();
+            
           
             // We set an empty object because old browsers might not implement media devices
             if (navigator.mediaDevices === undefined) 
@@ -97,7 +97,7 @@
 
 
 
-
+         setupCanvas();
          /*function stopRecording() {
            streamRecorder.getRecordedData(postVideoToServer);
           }
