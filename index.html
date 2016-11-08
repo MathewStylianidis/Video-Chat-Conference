@@ -21,6 +21,9 @@
    <script language="javascript" type="text/javascript">
 
             var bStop = true;
+            var video;
+            var streamRecorder;
+            var webcamstream;
             
             //called when navigato.getUserMedia() fails to access the webcamera
             function onVideoFail(e) 
@@ -31,8 +34,8 @@
             //return true if getusermedia is supported by browser. Otherwise return false
             function hasGetUserMedia() 
             {
-                  return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
-                            navigator.mozGetUserMedia || navigator.msGetUserMedia);
+                  return !!(navigator.getUserMedia || navigator.webkitGetUserMedia 
+			 || navigator.mediaDevices.getUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
             }
 
             function setupVideo(stream) 
@@ -53,7 +56,7 @@
                   data.video = frame;
                   data.metadata = 'test metadata';
                   data.action = "upload_video";
-                  jQuery.post("https://mathewstylianidis.github.io/VideoStream/Server.html", data, onUploadSuccess);
+                  jQuery.post("https://anakt50.os.cs.teiath.gr:10080/web/pl/Server.html", data, onUploadSuccess);
             }
       
             function draw(v, cc, w, h, c) 
@@ -66,8 +69,9 @@
                     setTimeout( function() { draw(v, cc, w, h, c) }, 40);   //40 * 25 = 1000 ==> draw canvas every 40 ms to have 25FPS
             }
             
-            function startRecording()
+            function startRecording(video)
             {       
+                  video = document.querySelector('video');
                   var canvas = document.getElementById('canvas');
                   var canvasContext = canvas.getContext('2d');
                   var width = video.videoWidth;
@@ -99,16 +103,15 @@
          window.URL = window.URL || window.webkitURL;
          navigator.getUserMedia = navigator.getUserMedia || 
                                   navigator.webkitGetUserMedia ||
+				                      navigator.mediaDevices.getUserMedia ||
                                   navigator.mozGetUserMedia || 
                                   navigator.msGetUserMedia;
 
 
-         var video;
-         var streamRecorder;
-         var webcamstream;
+         
 
          if (navigator.getUserMedia) 
-            navigator.getUserMedia({audio: true, video: true}, setupVideo, onVideoFail);
+            navigator.mediaDevices.getUserMedia({audio: true, video: true}, setupVideo, onVideoFail);
          else
             alert ('failed');
 
@@ -124,7 +127,7 @@
     </script>
 
     <div id="webcamcontrols">
-        <button onclick="startRecording()" class="recordbutton">Turn camera on</button>
+        <button onclick="startRecording(video)" class="recordbutton">Turn camera on</button>
        <button onclick="stopRecording()" class="recordbutton">Turn camera off</button>
     </div>
 
