@@ -63,8 +63,12 @@
                   //start capturing frames at a 25 FPS rate
                   setTimeout(draw, 40); ////wait for 0.04 seconds to capture the next frame ( 0.04 * 25 = 1 second )
                   while(1)
+                  {
+                     console.log('1');
                      draw(video, backcontext, width, height);
-            }
+                     console.log('2');
+                  }
+             }
           
           
             // We set an empty object because old browsers might not implement media devices
