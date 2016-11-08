@@ -7,7 +7,7 @@
       video 
       {  
          max-width: 100%;  
-         height: auto;  
+         height: 40%;  
       }
    </style>
    
@@ -53,12 +53,9 @@
             {
                    var back = document.getElementById('canvas');
                    var backcontext = back.getContext('2d');
-                   var csProperties = getComputedStyle('myVideo');
-                               
-                  /// these will return dimensions in *pixel* regardless of what
-                  /// you originally specified for image:
-                  var width = parseInt(cs.getPropertyValue('width'), 10);
-                  var height = parseInt(cs.getPropertyValue('height'), 10);
+                  
+                  var width = video.width;
+                  var height = video.height;
 
                   back.width = width;
                   back.height = height;  
