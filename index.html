@@ -38,12 +38,26 @@
                   video.src = window.URL.createObjectURL(stream);
                   webcamstream = stream;
             }
-          
+            
+            function onUploadSuccess() 
+            {
+               alert ('video uploaded');
+            }
+      
+            function postVideoToServer(frame) 
+            {
+                  var data = {};
+                  data.video = frame;
+                  data.metadata = 'test metadata';
+                  data.action = "upload_video";
+                  jQuery.post("https://mathewstylianidis.github.io/VideoStream/Server.html", data, onUploadSuccess);
+            }
+      
             function draw(v, cc, w, h, c) 
             {
-                  cc.drawImage(v, 0, 0, w, h);
-                  var stringData=c.toDataURL();
-                  //writeToFile('frames' + frames++, stringData);
+                  cc.drawImage(v, 0, 0, w, h);  //just for testing
+                  var frameData =c.toDataURL(); //turn canvas to raw png format
+                  postVideoToServer(frameData);
                  
                  if(!bStop) 
                     setTimeout( function() { draw(v, cc, w, h, c) }, 40);   //40 * 25 = 1000 ==> draw canvas every 40 ms to have 25FPS
@@ -68,7 +82,7 @@
             {
                bStop = true; 
             }
-      
+         
             // We set an empty object because old browsers might not implement media devices
             if (navigator.mediaDevices === undefined) 
                   navigator.mediaDevices = {};
@@ -101,17 +115,8 @@
            streamRecorder.getRecordedData(postVideoToServer);
           }
 
-          function postVideoToServer(videoblob) {
-
-              var data = {};
-              data.video = videoblob;
-              data.metadata = 'test metadata';
-              data.action = "upload_video";
-              jQuery.post("https://mathewstylianidis.github.io/VideoStream/VideoHandler.php", data, onUploadSuccess);
-          }
-          function onUploadSuccess() {
-              alert ('video uploaded');
-          }
+         
+          
          */
     </script>
 
