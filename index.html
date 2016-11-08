@@ -4,8 +4,8 @@
 
 
 
-   <video autoplay muted></video>
-   <canvas id="canvas"></canvas>
+   <video id = "myVideo" autoplay muted></video>
+   <canvas id = "canvas"></canvas>
    
    <script language="javascript" type="text/javascript">
 
@@ -45,8 +45,17 @@
             {
                    var back = document.getElementById('canvas');
                    var backcontext = back.getContext('2d');
+                   var csProperties = getComputedStyle('myVideo');
+                               
+                  /// these will return dimensions in *pixel* regardless of what
+                  /// you originally specified for image:
+                  var width = parseInt(cs.getPropertyValue('width'), 10);
+                  var height = parseInt(cs.getPropertyValue('height'), 10);
 
-                   while(1)
+                  back.width = width;
+                  back.height = height;  
+                  
+                  while(1)
                         draw(video, backcontext, cw, ch);
             }
           
