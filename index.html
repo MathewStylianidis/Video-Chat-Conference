@@ -8,7 +8,9 @@
    <canvas id="canvas"></canvas>
    
    <script language="javascript" type="text/javascript">
-          
+
+            
+            
             //called when navigato.getUserMedia() fails to access the webcamera
             function onVideoFail(e) 
             {
@@ -24,35 +26,28 @@
 
             function setupVideo(stream) 
             {
-               video = document.querySelector('video');
-               video.src = window.URL.createObjectURL(stream);
-               webcamstream = stream;
+                  video = document.querySelector('video');
+                  video.src = window.URL.createObjectURL(stream);
+                  webcamstream = stream;
             }
           
-          
+            function draw(v, bc, w, h) 
+            {
+                  bc.drawImage(v, 0, 0, w, h);
+                  var stringData=canvas.toDataURL();
+                  writeToFile('frames' + frames++, stringData);
+
+                  if(!_stop) 
+                        setTimeout(function(){ draw(v, bc, w, h); }); // the timeout here decides video rec framerate
+            }
+            
             function startRecording()
             {
-                var back = document.getElementById('canvas');
-                var backcontext = back.getContext('2d');
+                   var back = document.getElementById('canvas');
+                   var backcontext = back.getContext('2d');
 
-                cw = 240;
-                ch = 400;
-                back.width = cw;
-                back.height = ch;
-                while(1)
-                {
-                  draw(video, backcontext, cw, ch);
-                }
-                function draw(v, bc, w, h) {
-                     bc.drawImage(v, 0, 0, w, h);
-                        var stringData=canvas.toDataURL();
-                        if(fs !== null) {
-                            writeToFile('frames' + frames++, stringData);
-                        }
-                        if(!_stop) 
-                            setTimeout(function(){ draw(v, bc, w, h); }); // the timeout here decides video rec framerate
-                }
-            
+                   while(1)
+                        draw(video, backcontext, cw, ch);
             }
           
           
@@ -60,16 +55,16 @@
             if (navigator.mediaDevices === undefined) 
                   navigator.mediaDevices = {};
 
-         //check if getusermedia is supported
-         if (!hasGetUserMedia()) 
-            alert("getUserMedia is not implemented in this browser")
+            //check if getusermedia is supported
+            if (!hasGetUserMedia()) 
+                  alert("getUserMedia is not implemented in this browser")
 
 
          //get objects to handle urls and user media
          window.URL = window.URL || window.webkitURL;
-         navigator.getUserMedia  = navigator.getUserMedia || 
-                                navigator.webkitGetUserMedia ||
-                                 navigator.mozGetUserMedia || 
+         navigator.getUserMedia = navigator.getUserMedia || 
+                                  navigator.webkitGetUserMedia ||
+                                  navigator.mozGetUserMedia || 
                                   navigator.msGetUserMedia;
 
 
