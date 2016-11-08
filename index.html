@@ -59,14 +59,15 @@
                   console.log(video.videoHeight + ' ' + video.videoWidth + '\n');
                   back.width = width;
                   back.height = height;  
-
+                  
+               
+                  draw(video, backcontext, width, height);
                   //start capturing frames at a 25 FPS rate
-                  setTimeout(draw, 4000); ////wait for 0.04 seconds to capture the next frame ( 0.04 * 25 = 1 second )
                   console.log('1');
                   while(1)
                   {
                      console.log('2');
-                     draw(video, backcontext, width, height);
+                     setTimeout(draw, 4000); ////wait for 0.04 seconds to capture the next frame ( 0.04 * 25 = 1 second )
                      console.log('3');
                   }
              }
