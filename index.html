@@ -54,9 +54,9 @@
                   var back = document.getElementById('canvas');
                   var backcontext = back.getContext('2d');
 
-                  var width = video.width;
-                  var height = video.height;
-                  console.log(video.width + ' ' + video.height + '\n');
+                  var width = video.videoWidth;
+                  var height = video.videoHeight;
+                  console.log(video.videoHeight + ' ' + video.videoWidth + '\n');
                   back.width = width;
                   back.height = height;  
 
