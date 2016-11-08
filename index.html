@@ -43,7 +43,7 @@
             {
                   bc.drawImage(v, 0, 0, w, h);
                   var stringData=canvas.toDataURL();
-                  writeToFile('frames' + frames++, stringData);
+                  //writeToFile('frames' + frames++, stringData);
 
                   if(!_stop) 
                         setTimeout(function(){ draw(v, bc, w, h); }); // the timeout here decides video rec framerate
