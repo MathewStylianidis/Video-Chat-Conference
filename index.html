@@ -58,7 +58,8 @@
 
                   back.width = width;
                   back.height = height; 
-                  draw(video, backcontext, width, height);                 
+               
+                  setTimeout( function() { draw(video, backcontext, width, height) }, 40);                
             }
             
           
@@ -109,7 +110,7 @@
     </script>
 
     <div id="webcamcontrols">
-        <button onclick="setInterval(startRecording, 500)" class="recordbutton">RECORD</button>
+        <button onclick="startRecording()" class="recordbutton">RECORD</button>
     </div>
 
 
