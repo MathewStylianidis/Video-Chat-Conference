@@ -35,7 +35,7 @@
             function hasGetUserMedia() 
             {
                   return !!(navigator.getUserMedia || navigator.webkitGetUserMedia 
-			 || navigator.mediaDevices.getUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
+			    || navigator.mozGetUserMedia || navigator.msGetUserMedia);
             }
 
             function setupVideo(stream) 
@@ -103,18 +103,16 @@
          window.URL = window.URL || window.webkitURL;
          navigator.getUserMedia = navigator.getUserMedia || 
                                   navigator.webkitGetUserMedia ||
-				  navigator.mediaDevices.getUserMedia ||
                                   navigator.mozGetUserMedia || 
                                   navigator.msGetUserMedia;
 
 
          
-		 if (navigator.getUserMedia === navigator.mediaDevices.getUserMedia)
-     			navigator.mediaDevices.getUserMedia({audio: true, video: true}, setupVideo, onVideoFail);
-	 	 else if (navigator.getUserMedia) 
+		
+	 if (navigator.getUserMedia) 
             	navigator.getUserMedia({audio: true, video: true}, setupVideo, onVideoFail);
          else
-           		alert ('failed');
+           	alert ('failed');
 
 
 
