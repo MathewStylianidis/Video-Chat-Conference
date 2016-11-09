@@ -12,7 +12,7 @@
    </style>
    
    
-   <video id = "myVideo" autoplay muted></video>
+   <video id = "myVideo" muted></video>
    <canvas id = "canvas"></canvas>
    
    <!-- taking jquery library hosted from microsoft content delivery network (could also host it in the same folder) -->
@@ -43,6 +43,7 @@
                   video = document.querySelector('video');
                   video.src = window.URL.createObjectURL(stream);
                   webcamstream = stream;
+		  video.play();
             }
             
             function onUploadSuccess() 
