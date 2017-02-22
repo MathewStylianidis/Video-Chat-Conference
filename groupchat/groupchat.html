@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../layout.css" type="text/css">
+		<meta charset="UTF-8">
+	</head>
+	<body>
+	  
+		<div id="wrapper">
+			<font color = "white">
+			<div id = "users">
+				<canvas  hidden class = "vid" id = "hiddenCanvas"></canvas>
+				<video class = "vid" id = "myVideo" muted></video>
+				<canvas  class = "vid" id = "blackCanvas"></canvas>	
+			</div>
+
+			<p><p></p></p>
+
+			<div id="webcamcontrols">
+				<button onclick="startRecording()" id ="on/off" class="button">Click here to reveal yourself</button>
+				<button onclick="stopRecording()" class="button">Leave</button>
+			</div>
+			</font>
+		</div>
+		
+		<div class = "chatContainer">
+			<div class = "chatHeader">
+				<h3>Group chat</hr>			
+			</div>
+			<div class = 'chatMessages' id = "pastMessages">
+			 
+			</div>
+			<div class = 'chatBottom'> 
+
+					<input type = 'text' id = 'textField' value = ""
+						placeholder = "type your chat message">
+					<button id ="sendButton" onclick = "sendText()" > Send</button>
+			</div
+
+
+		<!-- taking jquery library hosted from microsoft content delivery network (could also host it in the same folder) -->
+		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+
+		<script language="javascript" type="text/javascript"  src="groupchat.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,160 @@
+html 
+{ 
+	/* Generated with http://gradient.quasi.ink */
+	background-size: cover;
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAB00lEQVQ4jW1Sy44TQQy0PW27HxOWwKLVoiChRGTFIvHQsssZIfgFJK78/zcUh+6e6YQcrJmuaZfLVUPkCdOcMW0dsptBn3bgX/cIv59gf38i/PkB/v4AfnoPfjxCvhwgH99hOuxB2xvI/BI8PwdvrkDzFUh8hlgGxwRWxxQcUhx8PYOOryEPd5Cv95i+fQA/HkGfD6C7PejVLShvQTqDrYA1gTWBJBawR5A7WDNEC9gzKDjYIihm8OYZ6OYa8uYW034HebsDb16AbYaEBLYM8QwKEcRWKmAJYhliBeIFpA6yBNEMDgayeuYyg8sG7AWkCRwSSGtVhV7AliCewZbBlmp5qhM1V3K1imtseDp9hggKBmLLld3aFCuNNC+TSWOt4O09Xa6gILYEaaaSRrDm5skM1lIxS4uSukWtrqxvSeogsbQmpKl97E2j2oGobxJ6bwZNETQ5qCsYL3dvRjWrJQNhC3QJJDTCrmwk6UoXkrMh4vN/OGkEsTXfdA1hJKOTcBqh5pZ+BtkYTOwrl4WwK5jiqmAZYKn+f55BXuqwVoPCM/8GJZ1IerNWQva8bjLcJY0gGf0K8SLhanyGtET5LLTaG0GXgljOJ79Jbl6nE+zUQ8c/TChExn2GzGUAAAAASUVORK5CYII=");
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+
+
+#wrapper 
+{
+	width: 2500px; /*set a fixed width so that objects do not change line when the window gets resized*/
+}
+
+#myVideo
+{
+	background:#000;
+	filter: grayscale(100%) blur(5px);
+}
+
+
+.header
+{
+	display: inline;
+	text-shadow:6px 3px 8px rgba(77,255,100,1);
+	font-weight:normal;
+	color:#F2FCFF;
+	background-color:#000000;
+	border: 5px;
+	border-radius: 35px; 
+	letter-spacing:1pt;
+	word-spacing:0pt;
+	font-size:300%;
+	text-align:left;
+	font-family:palatino linotype, palatino, serif;
+	line-height:1;
+	margin:34px;
+	padding:9px;
+	 transition: all 2s ease-in-out;
+}
+		 	 
+.vid
+{
+	-moz-transform: translateX(7px) translateY(20px);
+	-webkit-transform: translateX(7px) translateY(20px);
+	-o-transform: translateX(7px) translateY(20px) ;
+	-ms-transform: translateX(7px) translateY(20px);
+	transform: translateX(7px) translateY(20px);
+	margin-right: 20px;	
+	margin-bottom: 20px;
+}
+
+
+
+.button 
+{ 
+ background-size: cover;
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAACYklEQVQ4jXWTzYseRRDGu6p7uquqZ97NqxsxyXqJqybqIuopCUEhF0G86NVLBMGD5CJoQg56EBYMGCKG9eS/+vPQM7sa9VDUdPfMU89HT5LS0WaUI2e6t6d9c4Xy0xHy65vk5+8jv39I/vMu8vw25Y+P0LM75LPbyNktys8n1F9uoKfH6A9X0Yd7kkZFPdCpIXkiH1Smt53pi0uUR0fk0+tMT44pp29Qnn6APjsh//Ye049vMX3/Ovr4GvrgMuXxdfJ3h6RkhnhD3RFviDuqgUwT+spEuRGUW8H0+QH69WXKt1cp9w+ZPm7op4dMnx0yfblHv3oZvb8npVYRq4gZ4kGKhvRKdketI8XQaqQ+oa8FctIpN4P67o58sie/c0C7cwm9t0M/2ZGSNZI31AxxY6wN6Y6GkyNQd6boaDW0OrlVdK7IS5V8xanXdtTjhXx3R5JwkhlSG2JGciOtXdzQZmT3UT2Q3hFztAXSHGlOqg3tlfyqbYANaQ15sbdGNqdEoGsvrZGtjaExfE/uaOtIzGsotkpujdQunsUGO3VHzUb3QKOT3EnuiDmpG9od6U7aJKmt/m3ldl7ZV3arn2Jt+O2GRB+WxbAkyRZGewFoBZYYwzYf1YavW4DigYRTlpmyzFvK/88uuf0HYFtZBeId7cG0W8hzH6Foj/OP/351tq6r5OGnnV+x3DsanTx3yjIPwOR2DigboA9PxpAL2bruS4yfQH1GepCXmbzM6G4eDLdK/wK7WIutzNazTZmEk+dA5yAvQdIe6AZgDVlfSq3+Q/oAdMQvCOgc5NkpS1AOOnkX/AWyIVoteWQ1LgAAAABJRU5ErkJggg==");
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	border: 3px solid #000000;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:18px;
+	padding:13px 37px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #121711;
+	margin-right: 15px;
+	margin-top: 13px;
+	 -moz-transform: translateX(5px) translateY(5px) skewX(-5deg);
+	-webkit-transform: translateX(5px) translateY(5px) skewX(-5deg);
+	-o-transform: translateX(5px) translateY(5px) skewX(-5deg);
+	-ms-transform: translateX(5px) translateY(5px) skewX(-5deg);
+	transform: translateX(5px) translateY(5px) skewX(-5deg);
+	 transition: all 2s ease-in-out;
+}
+
+.button:hover 
+{
+	 
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4d4f47', endColorstr='#4604d4',GradientType=0);
+	transform: scale(1.1); 
+}
+
+.button:active 
+{
+	position:relative;
+	top:1px;
+}
+
+
+
+.chatContainer
+{
+	margin-top: 50px;
+	font-family: 'Open Sans';
+	box-sizing: border-box;
+	width: 45%;
+	height: 300px;
+	border: 4px solid #ddd; 
+	border-radius:5px;
+	 background-color: #ffffff; 
+}
+
+
+.chatContainer > .chatHeader
+{
+	width: auto;
+	background: white;
+	padding: 5px;
+	border-bottom: 1px solid #ddd;
+}
+
+.chatContainer > .chatHeader h3
+{
+	margin: 0;
+	padding: 2px;
+	font-weight: 300; /*less bold than normal*/
+	color: #333; /*gray-ish*/
+}
+
+.chatContainer > .chatMessages
+{
+	height: 210px;
+	border-bottom: 1px solid #ddd;
+	overflow-y: scroll;
+}
+
+.chatContainer > .chatBottom input[type='text']
+{
+	width: 85%;
+	padding: 3px;
+	padding-left: 10px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	margin: 5px;
+	height: 30px;
+}
+
+#sendButton
+{
+	padding:6px;
+	background: white;
+
+	cursor: pointer;
+}
+
+.cm
+{
+	list-style: none;
+	border-bottom: 1px solid #ddd;
+	padding: 5px;
+}
