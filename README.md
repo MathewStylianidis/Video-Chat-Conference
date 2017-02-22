@@ -1,16 +1,14 @@
 # VideoStream
 
-currently under development 
+Project is unfinished
 
 Video chat room app
 
 video - implemented
 
-text - under development
+text chat - implemented
 
 audio - not implemented
 
-
-
-the app need more files to function properly that haven't been uploaded yet. The ip in the client html file is also hard coded
+The ip addresses in the client js file is also hard coded and needs to be changed in order for the web app to function properly.
 
