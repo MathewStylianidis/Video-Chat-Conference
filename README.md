@@ -1,7 +1,9 @@
 # Video chat conference
 
 video - implemented
+
 text chat - implemented
+
 audio - not implemented
 
 The server's IP needs to be public or the server needs to be in the same LAN with the PCs joining the video chat room.
