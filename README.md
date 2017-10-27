@@ -2,7 +2,7 @@
 
 This web application was developed for an academic project in the course Multimedia Technology in the Technological Educational Institute of Athens. Its purpose is to build a prototype for a website with rooms for online video chat conferences. In its current state only one room is added but adding more is trivial.
 
-Please note:
+**Please note:**
 
 * In the current state of the project only video and text is implemented, no audio.
 
@@ -12,7 +12,7 @@ Please note:
 
 * There are compatibility issues with certain browsers and their various editions.
 
-General information about the repository structure:
+**General information about the repository structure:**
 
 * This application follows a server-client model. For the server side module, an early release of https://github.com/TooTallNate/Java-WebSocket is used, included in the server directory along with the Server.java file. The Server.java file makes use of the above-mentioned websocket repository and it the file that needs to run on the server.
 
