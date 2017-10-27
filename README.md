@@ -4,19 +4,16 @@ This web application was developed for an academic project in the course Multime
 
 Please note:
 
-In the current state of the project only video and text is implemented, no audio.
-
-Moreover, peer-to-peer connections are not used so in order to make the application work the server's IP need to be public or the server needs to be in the same LAN with the clients joining the video chat room.
-
-Finally, the IP addresses in the client js file are hard coded and need to be changed in order for the web app to function properly.
-
-There are compatibility issues with certain browsers and their various editions.
+*In the current state of the project only video and text is implemented, no audio.
+*Peer-to-peer connections are not used so in order to make the application work the server's IP need to be public or the server needs to be in the same LAN with the clients joining the video chat room.
+*The IP addresses in the client js file are hard coded and need to be changed in order for the web app to function properly.
+*There are compatibility issues with certain browsers and their various editions.
 
 General information about the repository structure:
 
-This application follows a server-client model. For the server side module, an early release of https://github.com/TooTallNate/Java-WebSocket is used, included in the server directory along with the Server.java file. The Server.java file makes use of the above-mentioned websocket repository and it the file that needs to run on the server.
+*This application follows a server-client model. For the server side module, an early release of https://github.com/TooTallNate/Java-WebSocket is used, included in the server directory along with the Server.java file. The Server.java file makes use of the above-mentioned websocket repository and it the file that needs to run on the server.
 
-The client directory includes all the html, css and js files that the web server should have available.
+*The client directory includes all the html, css and js files that the web server should have available.
 
 
  
