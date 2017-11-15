@@ -1,6 +1,6 @@
 # Video chat conference
 
-This web application was developed for an academic project in the course Multimedia Technology in the Technological Educational Institute of Athens. Its purpose was to build a prototype for a website with rooms for online video chat conferences. In its current state only one room was added but adding more is trivial.
+This web application was developed for an academic project in the course Multimedia Technology in the Technological Educational Institute of Athens. Its purpose was to build a prototype for a website with rooms for online video chat conferences. In its current state only one video chat room has been added but adding more is trivial.
 
 **Please note:**
 
