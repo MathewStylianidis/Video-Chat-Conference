@@ -14,7 +14,7 @@ This web application was developed for an academic project in the course Multime
 
 **General information about the repository structure:**
 
-* This application follows a server-client model. For the server side module, an early release of https://github.com/TooTallNate/Java-WebSocket was used, included in the server directory along with the Server.java file. The Server.java file makes use of the above-mentioned websocket repository and it the file that needs to run on the server.
+* This application follows a server-client model. For the server side module, an early release of https://github.com/TooTallNate/Java-WebSocket was used which is included in the server directory along with the Server.java file. The Server.java file makes use of the above-mentioned websocket repository and it the file that needs to run on the server.
 
 * The client directory includes all the html, css and js files that the web server should have available.
 
