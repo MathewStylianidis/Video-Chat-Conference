@@ -6,7 +6,7 @@ This web application was developed for an academic project in the course Multime
 
 * In the current state of the project only video and text is implemented, no audio.
 
-* Peer-to-peer connections are not used so in order to make the application work the server's IP need to be public or the server needs to be in the same LAN with the clients joining the video chat room.
+* Peer-to-peer connections are not used. Thereby, in order to make the application work the server's IP need to be public or the server needs to be in the same LAN with the clients joining the video chat room.
 
 * The IP addresses in the client js file are hard coded and need to be changed in order for the web app to function properly.
 
